@@ -3,6 +3,7 @@ Flask
 
 # Base de données (ORM)
 Flask-SQLAlchemy
+psycopg2-binary
 
 # Client HTTP pour appeler les API externes (Systeme.io, Learnybox)
 requests
