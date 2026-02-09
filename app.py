@@ -173,19 +173,12 @@ def register():
 # DÉMARRAGE
 # ---------------------------------------------------------
 if __name__ == '__main__':
-    # Initialisation DB
     with app.app_context():
         db.create_all()
     
-    # Init Scheduler
     scheduler.init_app(app)
     scheduler.start()
     
-    # Mode Debug et Port depuis le .env
-    is_debug = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
-    port = int(os.getenv('PORT', 5000))
-    
-    logger.info(f"🚀 Serveur démarré sur le port {port} (Debug: {is_debug})")
-    
-    # use_reloader=False impératif en mode debug avec scheduler
-    app.run(host='0.0.0.0', port=port, debug=is_debug, use_reloader=False)
+    # Render utilise la variable PORT
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
