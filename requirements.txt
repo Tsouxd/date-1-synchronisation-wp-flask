@@ -1,0 +1,16 @@
+# Framework Web
+Flask
+
+# Base de données (ORM)
+Flask-SQLAlchemy
+
+# Client HTTP pour appeler les API externes (Systeme.io, Learnybox)
+requests
+
+# Gestion des variables d'environnement (.env)
+python-dotenv
+
+# Serveur de production (recommandé pour le futur déploiement)
+gunicorn
+
+Flask-APScheduler

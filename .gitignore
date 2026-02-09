@@ -1,0 +1,24 @@
+# Environnement virtuel
+venv/
+ENV/
+env/
+
+# Python (fichiers compilés)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configuration & Secrets (TRÈS IMPORTANT)
+.env
+.flaskenv
+
+# Base de données SQLite (Pour ne pas envoyer tes tests sur Git)
+*.db
+/instance/
+
+# Logs
+*.log
+
+# IDE (Si tu utilises VS Code ou PyCharm)
+.vscode/
+.idea/
