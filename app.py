@@ -89,6 +89,7 @@ def get_fresh_learny_token():
         return None
 
 @scheduler.task('interval', id='process_daily_sequence', hours=1)
+
 def process_daily_sequence():
     """Vérifie les sessions passées (J+1) et inscrit à la séquence."""
     with app.app_context():
@@ -112,7 +113,7 @@ def process_daily_sequence():
             headers = {"Authorization": f"Bearer {token}"}
             payload = {
                 "prenom": user.firstname, "nom": user.lastname, "email": user.email,
-                "mobile": user.phone, "id_sequence": user.sequence_id, "rgpd": 1
+                "mobile": user.phone, "id_sequence": user.sequence_id, "rgpd": 1, "rgpd_date": datetime.now().strftime('%Y-%m-%d')
             }
             try:
                 r = requests.post(LEARNY_CONTACT_URL, headers=headers, data=payload, timeout=15)
